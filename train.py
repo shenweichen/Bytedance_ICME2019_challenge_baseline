@@ -1,12 +1,12 @@
 import pandas as pd
 from deepctr import SingleFeat
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 
 from model import xDeepFM_MTL
 
 ONLINE_FLAG = True
 loss_weights = [1, 1, ]  # [0.7,0.3]任务权重可以调下试试
+VALIDATION_FRAC = 0.2  # 用做线下验证数据比例
 
 if __name__ == "__main__":
     data = pd.read_csv('./input/final_track2_train.txt', sep='\t', names=[
@@ -16,6 +16,8 @@ if __name__ == "__main__":
                                 'uid', 'user_city', 'item_id', 'author_id', 'item_city', 'channel', 'finish', 'like', 'music_id', 'did', 'creat_time', 'video_duration'])
         train_size = data.shape[0]
         data = data.append(test_data)
+    else:
+        train_size = int(data.shape[0]*(1-VALIDATION_FRAC))
 
     sparse_features = ['uid', 'user_city', 'item_id', 'author_id', 'item_city', 'channel',
                        'music_id', 'did', ]
@@ -37,11 +39,8 @@ if __name__ == "__main__":
     dense_feature_list = [SingleFeat(feat, 0)
                           for feat in dense_features]
 
-    if ONLINE_FLAG:
-        train = data.iloc[:train_size]
-        test = data.iloc[train_size:]
-    else:
-        train, test = train_test_split(data, test_size=0.2, random_state=1024)
+    train = data.iloc[:train_size]
+    test = data.iloc[train_size:]
 
     train_model_input = [train[feat.name].values for feat in sparse_feature_list] + \
         [train[feat.name].values for feat in dense_feature_list]

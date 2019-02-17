@@ -6,7 +6,7 @@ from deepctr.layers.utils import concat_fun
 from deepctr.utils import check_feature_config_dict
 
 
-def xDeepFM_MTL(feature_dim_dict, embedding_size=8, hidden_size=(256, 256), cin_layer_size=(128, 128,),
+def xDeepFM_MTL(feature_dim_dict, embedding_size=8, hidden_size=(256, 256), cin_layer_size=(256, 256,),
                 cin_split_half=True,
                 task_net_size=(128,), l2_reg_linear=0.00001, l2_reg_embedding=0.00001,
                 seed=1024, ):
