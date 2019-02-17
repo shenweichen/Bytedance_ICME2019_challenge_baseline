@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from model import xDeepFM_MTL
 
 ONLINE_FLAG = True
-loss_weights = [1, 1, ]  # [0.7,0.3]
+loss_weights = [1, 1, ]  # [0.7,0.3]任务权重可以调下试试
 
 if __name__ == "__main__":
     data = pd.read_csv('./input/final_track2_train.txt', sep='\t', names=[
