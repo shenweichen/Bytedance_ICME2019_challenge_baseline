@@ -3,13 +3,13 @@
 ## 方案说明
 - 特征：均为原始特征，不包含多媒体内容特征。使用到的特征字段 ['uid', 'user_city', 'item_id', 'author_id', 'item_city', 'channel',
        'music_id', 'did',]
-- 模型：基于xDeepFM简单修改的多任务模型(没有测过开预测的效果，也可能分开做更好)。
+- 模型：基于xDeepFM简单修改的多任务模型(没有测过分开预测的效果，也可能分开单独预测更好)。
 - 结果：track2:  0.77094938716636 f, l = 0.70671501437, 0.920829590357
 
 ## 运行环境
 
  python 3.6  
- deepctr==0.3.1 
+ deepctr==0.9.2 
  tensorflow-gpu(tensorflow)
  pandas
  scikit-learn
@@ -17,12 +17,12 @@
 ### deepctr安装说明
 - CPU版本
   ```bash
-  $ pip install deepctr==0.3.1
+  $ pip install deepctr==0.9.2
   ``` 
 - GPU版本
-  先确保已经在本地安装`tensorflow-gpu`,版本为 **`tensorflow-gpu>=1.4.0,!=1.7.*,!=1.8.*,<=1.12.0`**，然后运行命令
+  先确保已经在本地安装`tensorflow-gpu`，然后运行命令
     ```bash
-    $ pip install deepctr==0.3.1 --no-deps
+    $ pip install deepctr==0.9.2 --no-deps
     ```
 
 
