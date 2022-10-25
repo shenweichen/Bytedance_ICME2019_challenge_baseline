@@ -9,7 +9,7 @@
 ## 运行环境
 
  python 3.6  
- deepctr==0.3.1 
+ deepctr==0.9.2 
  tensorflow-gpu(tensorflow)
  pandas
  scikit-learn
