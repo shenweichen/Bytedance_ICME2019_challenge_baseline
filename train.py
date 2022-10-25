@@ -3,7 +3,7 @@ from deepctr.feature_column import SparseFeat, DenseFeat, get_feature_names
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from sklearn.metrics import log_loss, roc_auc_score
 
-from model2 import xDeepFM_MTL
+from model import xDeepFM_MTL
 
 ONLINE_FLAG = False
 loss_weights = [1, 1, ]  # [0.7,0.3]任务权重可以调下试试

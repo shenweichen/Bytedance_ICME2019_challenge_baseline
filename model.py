@@ -51,8 +51,8 @@ def xDeepFM_MTL(feature_columns, hidden_size=(256, 256), cin_layer_size=(256, 25
         finish_logit = add_func([finish_logit, exFM_logit])
         like_logit = add_func([like_logit, exFM_logit])
 
-    output_finish = PredictionLayer('binary', name='finish')(finish_logit)
-    output_like = PredictionLayer('binary', name='like')(like_logit)
+    output_finish = PredictionLayer('binary', name='p_finish')(finish_logit)
+    output_like = PredictionLayer('binary', name='p_like')(like_logit)
     model = tf.keras.models.Model(inputs=inputs_list, outputs=[
         output_finish, output_like])
     return model
