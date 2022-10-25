@@ -10,7 +10,7 @@ loss_weights = [1, 1, ]  # [0.7,0.3]任务权重可以调下试试
 VALIDATION_FRAC = 0.2  # 用做线下验证数据比例
 
 if __name__ == "__main__":
-    data = pd.read_csv('./input/final_track2_sample.txt', sep='\t', names=[
+    data = pd.read_csv('./input/final_track2_train.txt', sep='\t', names=[
         'uid', 'user_city', 'item_id', 'author_id', 'item_city', 'channel', 'finish', 'like', 'music_id', 'did',
         'creat_time', 'video_duration'])
     if ONLINE_FLAG:
